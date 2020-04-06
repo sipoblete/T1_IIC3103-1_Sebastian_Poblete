@@ -11,11 +11,11 @@ def cargar_contenido():
     todos_episodios = []
     todos_personajes = []
     todos_lugares = []
-    cant_episodios = requests.get("https://rickandmortyapi.com/api/episode/")
+    cant_episodios = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/episode/")
     cant_episodios = cant_episodios.json()
-    cant_personajes = requests.get("https://rickandmortyapi.com/api/character/")
+    cant_personajes = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/character/")
     cant_personajes = cant_personajes.json()
-    cant_lugares = requests.get("https://rickandmortyapi.com/api/location/")
+    cant_lugares = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/location/")
     cant_lugares = cant_lugares.json()
     cant_episodios = int(cant_episodios["info"]["pages"])
     cant_personajes = int(cant_personajes["info"]["pages"])
@@ -24,7 +24,7 @@ def cargar_contenido():
     
     i=1
     for i in range(1,cant_episodios+1):
-            url = f'https://rickandmortyapi.com/api/episode/?page='
+            url = f'https://integracion-rick-morty-api.herokuapp.com/api/episode/?page='
             url = url + str(i)
             response = requests.get(url)
             data = response.json()
@@ -37,7 +37,7 @@ def cargar_contenido():
   
     j=1
     for j in range(1,cant_personajes+1):
-            url = f'https://rickandmortyapi.com/api/character/?page='
+            url = f'https://integracion-rick-morty-api.herokuapp.com/api/character/?page='
             url = url + str(j)
             response = requests.get(url)
             data = response.json()
@@ -50,7 +50,7 @@ def cargar_contenido():
 
     k=1
     for k in range(1,cant_lugares+1):
-            url = f'https://rickandmortyapi.com/api/location/?page='
+            url = f'https://integracion-rick-morty-api.herokuapp.com/api/location/?page='
             url = url + str(k)
             response = requests.get(url)
             data = response.json()
@@ -99,14 +99,14 @@ def buscar(request):
 
 def home(request):
     
-    response = requests.get("https://rickandmortyapi.com/api/episode/")
+    response = requests.get("https://integracion-rick-morty-api.herokuapp.com/api/episode/")
     data = response.json()
    
     paginas = int(data["info"]["pages"])   
     diccionario = {"nombre":[],"fecha":[],"codigo":[]}
     i = 1
     for i in range(1, paginas+1):
-        url = 'https://rickandmortyapi.com/api/episode/?page='
+        url = 'https://integracion-rick-morty-api.herokuapp.com/api/episode/?page='
         url = url + str(i)
         response = requests.get(url)
         data = response.json()
@@ -128,7 +128,7 @@ def home(request):
 
 
 def episodio(request, identificador):
-    url = 'https://rickandmortyapi.com/api/episode/'
+    url = 'https://integracion-rick-morty-api.herokuapp.com/api/episode/'
     url+= str(identificador)
     response = requests.get(url)
     data = response.json()
@@ -153,7 +153,7 @@ def episodio(request, identificador):
     
 
 def personaje(request, identificador):
-    url = "https://rickandmortyapi.com/api/character/"
+    url = "https://integracion-rick-morty-api.herokuapp.com/api/character/"
     url = url + str(identificador)
     
     response = requests.get(url)
@@ -193,7 +193,7 @@ def personaje(request, identificador):
     return HttpResponse(documento)
 
 def lugar(request, id_lugar):
-    url ="https://rickandmortyapi.com/api/location/"
+    url ="https://integracion-rick-morty-api.herokuapp.com/api/location/"
     url+= str(id_lugar)
     response = requests.get(url)
     data = response.json()
