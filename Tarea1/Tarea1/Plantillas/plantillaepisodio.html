@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 5px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+  <header>
+    {% include "plantillabarra.html" %}
+    <h2>{{nombre}}</h2>
+    <p>{{fecha}}</p>
+    <p>{{codigo}}</p>
+  </header>
+    
+    <!-- <h2>Pagina: {{pagina}}</h2>
+    <h2>Id episodio: {{identificador}}</h2> -->
+
+<table>
+  <tr>
+    <th><h1>Personajes</h1></th>
+  
+  </tr>
+  {% for personaje in personajes %}
+  <tr>
+    <td><a href="{% url 'personaje' personaje.0 %}">{{personaje.1}}</a></td>
+    <!-- <td>{{i}}</td> -->
+  </tr>
+      {% endfor %}
+  
+ 
+</table>
+
+</body>
+</html>

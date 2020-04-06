@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+header {
+  background-color: #666;
+  padding: 5px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+  <header>
+    {% include "plantillabarra.html" %}
+    <h2>{{nombre}}</h2>
+    <p>{{tipo}}</p>
+    <p>{{dimension}}</p>
+  </header>
+
+    
+
+<table>
+  <tr>
+    <th><h1>Personajes residentes</h1></th>
+  
+  </tr>
+  {% for i in lista_residentes %}
+  <tr>
+    <td><a href="{% url 'personaje' i.0 %}">{{i.1}}</a></td>
+    <!-- <td>{{i}}</td> -->
+  </tr>
+      {% endfor %}
+  
+ 
+</table>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 100%; /* Should be removed. Only for demonstration */
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 5px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+.col-container {
+  display: table;
+  width: 100%;
+}
+.col {
+  display: table-cell;
+  padding: 16px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+</head>
+
+<body>
+  
+<header>
+  {% include "plantillabarra.html" %}
+  <h2>Rick and Morty</h2>
+</header>
+
+
+<div class="col-container">
+  <div class="col" style="background-color:#aaa;">
+    <h2>Nombre</h2>
+    {% for i in nombre %}
+    <p><a href="{% url 'episodio' identificador=i.0  %}">{{i.1}}</a></p>
+        {% endfor %}
+  </div>
+  <div class="col" style="background-color:#bbb;">
+    <h2>Fecha</h2>
+    {% for i in fecha %}
+            <p>{{i}}</p>
+        {% endfor %}
+  </div>
+  <div class="col" style="background-color:#ccc;">
+    <h2>Codigo</h2>
+    {% for i in codigo %}
+            <p>{{i}}</p>
+        {% endfor %}
+  </div>
+</div>
+
+</body>
+</html>
