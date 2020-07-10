@@ -101,7 +101,11 @@ footer {
       <li><h1>Especie: {{especie}}</h1></li>
       <li><h1>Tipo: {{tipo}}</h1></li>
       <li></li><h1>Genero: {{genero}}</h1></li>
-      <li><h1>Origen: {{origen}}</h1></li>
+      {% if origen == 0 %}
+        <li><h1>Origen: unknown </h1></li>
+      {% else %}
+        <li><h1>Origen: <a href="{% url 'lugar' id_origen %}"> {{origen}}</a> </h1></li>
+      {% endif %}
       {% if lugar == 0 %}
         <li><h1>Lugar: unknown </h1></li>
       {% else %}
