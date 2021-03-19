@@ -20,7 +20,7 @@ django-heroku==0.3.1
 django-hitcounter==0.1.1
 django-revproxy==0.9.15
 django-taggit==1.2.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 et-xmlfile==1.0.1
 etiquetando==0.1
 Faker==0.8.15
