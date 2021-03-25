@@ -65,7 +65,7 @@ pyparsing==2.4.6
 PyQt5==5.10.1
 python-dateutil==2.7.3
 pytz==2019.3
-PyYAML==5.2
+PyYAML==5.4
 redis==3.3.11
 repoze.lru==0.7
 requests==2.20.0
